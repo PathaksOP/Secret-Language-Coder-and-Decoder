@@ -20,7 +20,7 @@ while True:
         break
     
     
-    # Encoding:
+    
 
     phrase = input('Enter a phrase: ').strip().lower() 
     alphabets = [
@@ -49,8 +49,10 @@ while True:
             
             break
 
-    # print(list_input)
+    # list_input = phrase.split() # CAN ALSO USE THIS TO CONVERT INTO LIST
 
+    # print(list_input)
+    # Encoding:
     def encoder(list_input , list_output):
         for i in list_input:
             if len(i) <= 3:
@@ -77,6 +79,7 @@ while True:
         return phrase_new.strip(' ')
 
 
+    # Decoding:
     def decoder(list_input, list_output):
         for i in list_input:
             if len(i) <= 3:

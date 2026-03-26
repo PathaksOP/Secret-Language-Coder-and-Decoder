@@ -104,11 +104,11 @@ while True:
 
     if user_input == 'e':
         output = encoder(list_input , list_output)
-        print(output)
+        print(f'The encoded phrase is: "{output}"')
 
     elif user_input == 'd':
         output = decoder(list_input , list_output)
-        print(output)
+        print(f'The decoded phrase is: "{output}"')
 
     elif user_input == 'q':
         break

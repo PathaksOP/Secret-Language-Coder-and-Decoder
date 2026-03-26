@@ -45,7 +45,7 @@ def coder(list_input , list_output):
             for x in random_alpha:
                 random_chars = random_chars + x
             
-            i = random_chars[:3] + i[1 : len(i)] + i[0] + random_chars[3:]
+            i = random_chars[:3] + i[3 : len(i)] + i[0:3] + random_chars[3:]
 
             list_output.append(i)
 

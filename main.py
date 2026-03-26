@@ -2,6 +2,51 @@ import random
 
 print('Welcome to Secret-Language-Coder-and-Decoder!'.center(500))
 
+# Encoding:
+def encoder(list_input , list_output):
+        for i in list_input:
+            if len(i) <= 3:
+                
+                i = ' ' + i
+                word = i[len(i) : 0 : -1]
+                list_output.append(word)
+            else:
+                random_alpha = random.choices(alphabets , k = 6)
+                
+                random_chars = ''
+                for x in random_alpha:
+                    random_chars = random_chars + x
+                
+                i = random_chars[:3] + i[3 : len(i)] + i[0:3] + random_chars[3:]
+
+                list_output.append(i)
+
+
+        phrase_new = ''
+        for a in list_output:
+            phrase_new = phrase_new + a + ' '
+
+        return phrase_new.strip(' ')
+
+
+# Decoding:
+def decoder(list_input, list_output):
+    for i in list_input:
+        if len(i) <= 3:
+               
+            i = ' ' + i
+            word = i[len(i) : 0 : -1]
+            list_output.append(word)
+        else: # (abc)defghij[klm](nop)
+            i = i[-6:-3] + i[3:-6]
+            list_output.append(i)
+            
+    phrase_new = ''
+    for a in list_output:
+        phrase_new = phrase_new + a + ' '
+
+    return phrase_new.strip(' ')
+
 while True:
 
     print('\n')
@@ -52,51 +97,8 @@ while True:
     # list_input = phrase.split() # CAN ALSO USE THIS TO CONVERT INTO LIST
 
     # print(list_input)
-    # Encoding:
-    def encoder(list_input , list_output):
-        for i in list_input:
-            if len(i) <= 3:
-                
-                i = ' ' + i
-                word = i[len(i) : 0 : -1]
-                list_output.append(word)
-            else:
-                random_alpha = random.choices(alphabets , k = 6)
-                
-                random_chars = ''
-                for x in random_alpha:
-                    random_chars = random_chars + x
-                
-                i = random_chars[:3] + i[3 : len(i)] + i[0:3] + random_chars[3:]
-
-                list_output.append(i)
-
-
-        phrase_new = ''
-        for a in list_output:
-            phrase_new = phrase_new + a + ' '
-
-        return phrase_new.strip(' ')
-
-
-    # Decoding:
-    def decoder(list_input, list_output):
-        for i in list_input:
-            if len(i) <= 3:
-                
-                i = ' ' + i
-                word = i[len(i) : 0 : -1]
-                list_output.append(word)
-            else: # (abc)defghij[klm](nop)
-                i = i[-6:-3] + i[3:-6]
-
-                list_output.append(i)
-            
-        phrase_new = ''
-        for a in list_output:
-            phrase_new = phrase_new + a + ' '
-
-        return phrase_new.strip(' ')
+    
+    
 
 
 
